@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://l87r5uvnd1wn"]
+
+[ext_resource type="Script" path="res://scene/UI/dialog_bubble.gd" id="1_a3vwm"]
+[ext_resource type="Texture2D" uid="uid://x35sg4jdx5jo" path="res://assets/UI/对话框点9图.9.png" id="1_dtne3"]
+[ext_resource type="Texture2D" uid="uid://dmxcuig5bovd1" path="res://assets/UI/对话框把手.png" id="2_5wrsd"]
+[ext_resource type="Theme" uid="uid://g7j2bxr7k4a3" path="res://scene/UI/default_theme.tres" id="2_pv4hx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oxii6"]
+texture = ExtResource("1_dtne3")
+texture_margin_left = 35.0
+texture_margin_top = 35.0
+texture_margin_right = 35.4511
+texture_margin_bottom = 35.0371
+region_rect = Rect2(0, 0, 143, 132)
+
+[node name="DialogBubble" type="Control"]
+layout_mode = 3
+script = ExtResource("1_a3vwm")
+
+[node name="content" type="Label" parent="."]
+custom_minimum_size = Vector2(560, 0)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 21.0
+offset_top = -161.0
+offset_right = 581.0
+offset_bottom = -21.9629
+grow_vertical = 0
+mouse_filter = 0
+theme = ExtResource("2_pv4hx")
+theme_override_styles/normal = SubResource("StyleBoxTexture_oxii6")
+text = "这是一段长文本。"
+autowrap_mode = 2
+
+[node name="Handle" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -59.0
+offset_right = 61.0
+grow_vertical = 0
+texture = ExtResource("2_5wrsd")
+flip_h = true
+
+[connection signal="gui_input" from="content" to="." method="_on_content_gui_input"]
