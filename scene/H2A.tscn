@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://2sm0sta68021"]
+
+[ext_resource type="PackedScene" uid="uid://dngr0mvyoa3p0" path="res://scene/Scene.tscn" id="1_ifku1"]
+[ext_resource type="Texture2D" uid="uid://dvqwyfdmub0lv" path="res://assets/H2A/roomsignBG.png" id="2_dgh4w"]
+[ext_resource type="Script" path="res://script/classes/Teleporter.gd" id="3_v0u1p"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bvdja"]
+radius = 44.776
+height = 128.817
+
+[node name="Background" instance=ExtResource("1_ifku1")]
+texture = ExtResource("2_dgh4w")
+
+[node name="H2" type="Area2D" parent="." index="0"]
+position = Vector2(-800, -427)
+script = ExtResource("3_v0u1p")
+path = "res://scene/H2.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="H2" index="0"]
+rotation = 2.06668
+shape = SubResource("CapsuleShape2D_bvdja")
