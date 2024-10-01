@@ -73,7 +73,7 @@ offset_right = 155.0
 offset_bottom = -19.0
 
 [node name="Key" type="Area2D" parent="." index="4"]
-position = Vector2(75, 474)
+position = Vector2(-71, 350)
 script = ExtResource("7_gn3ea")
 item = ExtResource("8_4g0w0")
 texture = ExtResource("7_bpd38")
