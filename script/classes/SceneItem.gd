@@ -10,11 +10,10 @@ func _ready() -> void:
 	hide()
 	if Engine.is_editor_hint(): return  #在编辑器中运行脚本时
 	
-	if !Game.flags.has(get_flag()):  #如果已经有该flag，使item消失
+	if not Game.flags.has(get_flag()):  
 		show()
 		return
-	queue_free()
-	
+	queue_free()  #如果已经有该flag，使item消失
 
 
 
@@ -27,6 +26,7 @@ func interact():
 	super()
 	
 	Game.flags.add(get_flag())
+	Game.inventory.add_item(item)
 	
 	# 拾取物品动画
 	var sprite := Sprite2D.new()

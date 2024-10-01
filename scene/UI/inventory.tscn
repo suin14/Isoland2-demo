@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://b48861twh046x"]
+
+[ext_resource type="Texture2D" uid="uid://cml6v2dc42je" path="res://assets/UI/道具指示文字背景黑块.png" id="1_1sgcd"]
+[ext_resource type="Script" path="res://scene/UI/inventory.gd" id="1_70757"]
+[ext_resource type="Texture2D" uid="uid://7bp7f2tapatc" path="res://assets/UI/道具栏的左箭头.png" id="2_7fl7h"]
+[ext_resource type="Texture2D" uid="uid://j87ytxi2ycnq" path="res://assets/UI/道具栏的左箭头按下.png" id="3_icclc"]
+[ext_resource type="Texture2D" uid="uid://cnvfmee4ksol" path="res://assets/UI/道具栏的左箭头不可用.png" id="4_6j2v5"]
+[ext_resource type="Texture2D" uid="uid://cmy180476yi05" path="res://assets/UI/道具栏.png" id="5_yqln0"]
+[ext_resource type="Texture2D" uid="uid://cegypaljbg1gf" path="res://assets/UI/道具栏的右箭头.png" id="6_ojeri"]
+[ext_resource type="Texture2D" uid="uid://y26gv8jlcg17" path="res://assets/H2/key_prop.png" id="6_qhkfo"]
+[ext_resource type="Texture2D" uid="uid://cyo5y6v1y0im7" path="res://assets/UI/道具栏的右箭头按下.png" id="7_agjs4"]
+[ext_resource type="Texture2D" uid="uid://ch4ipxcr1td6o" path="res://assets/UI/抓着道具的手.png" id="7_rdtlu"]
+[ext_resource type="Texture2D" uid="uid://c1mt2om1oybrw" path="res://assets/UI/道具栏的右箭头不可用.png" id="8_2lxep"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8hr6l"]
+texture = ExtResource("1_1sgcd")
+texture_margin_left = 54.0
+texture_margin_top = 28.6667
+texture_margin_right = 56.0
+texture_margin_bottom = 29.3333
+
+[node name="Inventory" type="VBoxContainer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -370.0
+offset_top = -343.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 2
+script = ExtResource("1_70757")
+
+[node name="Description" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_8hr6l")
+text = "道具描述"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="Description"]
+wait_time = 1.5
+one_shot = true
+
+[node name="ItemBar" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 2
+
+[node name="Prev" type="TextureButton" parent="ItemBar"]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("2_7fl7h")
+texture_pressed = ExtResource("3_icclc")
+texture_disabled = ExtResource("4_6j2v5")
+
+[node name="Use" type="TextureButton" parent="ItemBar"]
+layout_mode = 2
+texture_normal = ExtResource("5_yqln0")
+
+[node name="Prop" type="Sprite2D" parent="ItemBar/Use"]
+z_index = 1
+position = Vector2(112, 106)
+texture = ExtResource("6_qhkfo")
+
+[node name="Hand" type="Sprite2D" parent="ItemBar/Use"]
+z_index = 1
+position = Vector2(164, 151)
+texture = ExtResource("7_rdtlu")
+
+[node name="Next" type="TextureButton" parent="ItemBar"]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("6_ojeri")
+texture_pressed = ExtResource("7_agjs4")
+texture_disabled = ExtResource("8_2lxep")
+
+[connection signal="timeout" from="Description/Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="ItemBar/Prev" to="." method="_on_prev_pressed"]
+[connection signal="pressed" from="ItemBar/Use" to="." method="_on_use_pressed"]
+[connection signal="pressed" from="ItemBar/Next" to="." method="_on_next_pressed"]

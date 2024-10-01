@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://wktisxxoy6h4"]
+[gd_scene load_steps=16 format=3 uid="uid://wktisxxoy6h4"]
 
 [ext_resource type="PackedScene" uid="uid://dngr0mvyoa3p0" path="res://scene/Scene.tscn" id="1_6axae"]
 [ext_resource type="Texture2D" uid="uid://g6svbdsvvod6" path="res://assets/H2/H2.png" id="2_k6gi0"]
@@ -8,7 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://l87r5uvnd1wn" path="res://scene/UI/dialog_bubble.tscn" id="5_qdpnu"]
 [ext_resource type="Texture2D" uid="uid://dcex4851e3qnl" path="res://assets/H2/key.png" id="7_bpd38"]
 [ext_resource type="Script" path="res://script/classes/SceneItem.gd" id="7_gn3ea"]
-[ext_resource type="Resource" uid="uid://dsurff726r5ul" path="res://script/items/key.tres" id="8_4g0w0"]
+[ext_resource type="Resource" uid="uid://dsurff726r5ul" path="res://script/items/key.tres" id="8_ce3nv"]
+[ext_resource type="Resource" uid="uid://cqwiwfyyj8vjy" path="res://script/items/mail.tres" id="10_a1ibe"]
+[ext_resource type="Texture2D" uid="uid://bx27a4o2sgxad" path="res://assets/H4/mail_piece.png" id="11_5x3vb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_axdrm"]
 radius = 37.0
@@ -60,6 +62,7 @@ shape = SubResource("CapsuleShape2D_tdh5p")
 [node name="Granny" type="Area2D" parent="." index="3"]
 position = Vector2(-447, -25)
 script = ExtResource("4_hxhyy")
+allow_item = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Granny" index="0"]
 position = Vector2(0, 5.5)
@@ -75,8 +78,14 @@ offset_bottom = -19.0
 [node name="Key" type="Area2D" parent="." index="4"]
 position = Vector2(-71, 350)
 script = ExtResource("7_gn3ea")
-item = ExtResource("8_4g0w0")
+item = ExtResource("8_ce3nv")
 texture = ExtResource("7_bpd38")
+
+[node name="Mail" type="Area2D" parent="." index="5"]
+position = Vector2(928, 340)
+script = ExtResource("7_gn3ea")
+item = ExtResource("10_a1ibe")
+texture = ExtResource("11_5x3vb")
 
 [connection signal="interacted" from="Granny" to="." method="_on_granny_interacted"]
 [connection signal="gui_input" from="Granny/DialogBubble" to="." method="_on_dialog_bubble_gui_input"]

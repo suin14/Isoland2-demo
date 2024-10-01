@@ -4,12 +4,14 @@ class_name Interactable
 
 signal interacted
 
+@export var allow_item := false
 @export var texture: Texture : set = set_texture
 
 @warning_ignore("unused_parameter")
 func _input_event(viewport: Viewport, event: InputEvent, shape_idx: int) -> void:
-	if event.is_action_pressed("interact"):
-		interact()
+	if not event.is_action_pressed("interact"): return
+	if not allow_item and Game.inventory.active_item: return
+	interact()
 
 
 func interact() -> void:

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SceneChanger="*res://scene/globals/scene_changer.tscn"
 Game="*res://script/Game.gd"
+Hud="res://scene/globals/hud.tscn"
 
 [display]
 

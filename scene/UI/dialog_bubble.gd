@@ -32,7 +32,7 @@ func show_line(line: int):
 	#打字机动画
 	txtSpeed = content.text.length() * 0.1  #每个字符的单位时间
 	var t := create_tween()
-	t.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
+	t.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
 	t.tween_property(content, "visible_ratio", 1.0, txtSpeed).from(0.0)
 
 
