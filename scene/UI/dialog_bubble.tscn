@@ -15,6 +15,7 @@ region_rect = Rect2(0, 0, 143, 132)
 
 [node name="DialogBubble" type="Control"]
 layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_a3vwm")
 
 [node name="content" type="Label" parent="."]

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="迷失岛 练习"
-run/main_scene="res://scene/H1.tscn"
+run/main_scene="res://scene/H2.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
