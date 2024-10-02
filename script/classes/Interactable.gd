@@ -4,7 +4,7 @@ class_name Interactable
 
 signal interacted
 
-@export var allow_item := false
+@export var allow_item := false  #允许道具交互
 @export var texture: Texture : set = set_texture
 
 @warning_ignore("unused_parameter")

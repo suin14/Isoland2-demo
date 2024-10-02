@@ -5,7 +5,7 @@ class Flags:
 	signal changed
 	var flags := []
 	
-	func has(flag: String):  #检查是否有flag
+	func has(flag: String) -> bool:  #检查是否有flag
 		return flag in flags
 	
 	func add(flag: String):  #添加flag
@@ -42,8 +42,7 @@ class Inventory:
 		_items.remove_at(index)
 		
 		if _current_item_index >= _items.size():
-			_current_item_index = -1
-		
+			_current_item_index = 0 if _items else -1
 		changed.emit()
 	
 	func select_next():
