@@ -1,5 +1,5 @@
 extends Sprite2D
-
+class_name Scene
 
 func _ready() -> void:
 	# 切入场景缩放效果

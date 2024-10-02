@@ -59,3 +59,7 @@ class Inventory:
 
 var flags := Flags.new()  #创建实例
 var inventory := Inventory.new()
+
+
+func back_to_title() -> void:
+	SceneChanger.change_scene("res://scene/UI/title_screen.tscn")
